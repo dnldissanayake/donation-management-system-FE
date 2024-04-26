@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Management System - Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0-alpha1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-hWV3r57sfhWqYwFgpT/RS7x8Fft9V49uo9+JttLJO9g+8cSsDv/TdkPbvh17R2ei" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <nav class="navigation">
+            <ul>
+                <li><a href="#dashboard" class="active">Dashboard</a></li>
+                <li><a href="#patients">Patients</a></li>
+                <li><a href="#donators">Donators</a></li>
+                <li><a href="#reports">Reports</a></li>
+                <li><a href="#donations">Donations</a></li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            <div class="tab-content active" id="dashboard">
+                <h2>Welcome to Donation Management System</h2>
+                <div class="flex-item">
+                    <h3 class="mt-5">Total Patients</h3>
+                    <p>1000</p>
+                </div>
+                <div class="flex-item">
+                    <h3>Total Donators</h3>
+                    <p>500</p>
+                </div>
+                <div class="flex-item">
+                    <h3>Pending Confirmation</h3>
+                    <p>500</p>
+                </div>
+                <div class="flex-item">
+                    <h3>Closed Donation</h3>
+                    <p>500</p>
+                </div>
+            </div>
+
+            <div class="tab-content" id="patients">
+                <h2>Patients</h2>
+            </div>
+            <div class="tab-content" id="donators">
+                <h2>Donators</h2>
+            </div>
+            <div class="tab-content" id="reports">
+                <h2>Reports</h2>
+            </div>
+            <div class="tab-content" id="donations">
+                <h2>Donations</h2>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll('.navigation ul li a');
+
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+
+                    this.classList.add('active');
+
+                    tabContents.forEach(tab => {
+                        tab.classList.remove('active');
+                    });
+
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+        });
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"
+        integrity="sha384-Pa5EH4IY9VrYtuP57IEdSS3fj3rZV8daw8fh/5P5hq7pSkE8z90vSIcV+SLZ8lTb" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
